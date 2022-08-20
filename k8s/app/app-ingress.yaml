@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp
+  namespace: dev-to
+spec:
+  rules:
+    # - host: dev.local
+    - host: "www.192.168.49.2.sslip.io"
+      http:
+        paths:
+          - pathType: Prefix
+            path: /app
+            backend:
+              service:
+                name: myapp
+                port: 
+                  number: 8080
