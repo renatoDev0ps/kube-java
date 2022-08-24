@@ -7,5 +7,11 @@ pipeline{
         sh 'mvn clean install'
       }
     }
+
+    stage("build docker image"){
+      steps {
+        sh 'docker build -t devops/kube-java .'
+      }
+    }
   }
 }
